@@ -1,0 +1,27 @@
+const AWS = require('aws-sdk');
+
+const dynamoDB = new AWS.DynamoDB({region: 'ap-south-1', apiVersion: '2012-08-10'});
+
+handler =   (event) => {
+  const params = {
+    Item: {
+        "Artist":{S: "Nick Pople"},
+        "timestamp": {N: "1590165266"},
+        "SongTitle": {S: "My way"},
+        "Rating": {S: "6"}
+        },
+
+     TableName: "album"
+   };
+
+ // calling putItem returning a callback
+ dynamoDB.putItem(params, function(err, data){
+   if (err){console.log(err); return err;}
+  else{
+    console.log(data);
+    //return data;
+   }   
+ });
+ };
+
+ handler();

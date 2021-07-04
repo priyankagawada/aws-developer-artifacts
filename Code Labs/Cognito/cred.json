@@ -1,0 +1,9 @@
+{
+    "UserPoolId": "ap-south-1_XbWvkkSTW",
+    "ClientId": "3vgc1d49tbqto2pi5i25s6b55f",
+    "AuthFlow": "ADMIN_USER_PASSWORD_AUTH",
+    "AuthParameters": {
+        "USERNAME": "priya",
+        "PASSWORD":"password"
+    }
+}

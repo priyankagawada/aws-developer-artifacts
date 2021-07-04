@@ -1,0 +1,59 @@
+const AWS = require("aws-sdk");
+AWS.config.update({ region: 'ap-south-1' });
+
+const docClient = new AWS.DynamoDB.DocumentClient();
+
+docClient.batchWrite({
+    RequestItems: {
+        'friends': [
+            {
+                PutRequest: {
+                    Item: {
+                        id: 1,
+                        name: 'Paqiton Pinhole'
+                        
+                    }
+                }
+            },
+            {
+                PutRequest: {
+                    Item: {
+                        id: 2,
+                        name: 'Chilton Josupelt'
+                    }
+                }
+            },
+            {
+                PutRequest: {
+                    Item: {
+                        id: 3,
+                        name: 'Nick Maybey'
+                    }
+                }
+            },
+            {
+                PutRequest: {
+                    Item: {
+                        id: 4,
+                        name: 'Anton Garron'
+                    }
+                }
+            },
+            {
+                PutRequest: {
+                    Item: {
+                        id: 5,
+                        name: 'Ange Pople'
+                    }
+                }
+            }
+
+        ]
+    }
+}, (err, data)=>{
+    if(err) {
+        console.log(err);
+    } else {
+        console.log(data);
+    }
+});

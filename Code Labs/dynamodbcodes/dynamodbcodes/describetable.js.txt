@@ -1,0 +1,15 @@
+const AWS = require('aws-sdk')
+AWS.config.apiVersions = {
+    dynamodb: '2012-08-10',
+};
+var dynamodb = new AWS.DynamoDB({apiVersion: '2012-08-10', region: 'ap-south-1'});
+
+var params = {
+    TableName: "album"
+};
+
+dynamodb.describeTable(params, (err, data) => {
+
+       if(err) console.log(err);
+       else console.log(data);
+});
